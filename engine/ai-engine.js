@@ -64,18 +64,17 @@ class AIEngine {
      */
     loadBrainMemories() {
         try {
-            const brainData = localStorage.getItem('ai-brain-memories');
+            // Key from brain.js
+            const brainData = localStorage.getItem('amkyawdev_brain_memories');
             if (brainData) {
-                const parsed = JSON.parse(brainData);
-                if (parsed.memories && Array.isArray(parsed.memories)) {
+                const memories = JSON.parse(brainData);
+                if (memories && Array.isArray(memories) && memories.length > 0) {
                     // Add brain memories to data
-                    const brainMemories = {
-                        brain: parsed.memories.map(m => ({
-                            input: m.input,
-                            output: m.output,
-                            category: m.category || 'brain'
-                        }))
-                    };
+                    const brainMemories = memories.map(m => ({
+                        input: m.input,
+                        output: m.output,
+                        category: m.category || 'brain'
+                    }));
                     
                     // Merge with existing data
                     if (!this.data.mm.chat) this.data.mm.chat = {};
@@ -84,12 +83,19 @@ class AIEngine {
                     this.data.mm.chat.brain = brainMemories;
                     this.data.eng.chat.brain = brainMemories;
                     
-                    console.log('Brain memories loaded:', parsed.memories.length);
+                    console.log('Brain memories loaded:', memories.length);
                 }
             }
         } catch (error) {
             console.error('Error loading brain memories:', error);
         }
+    }
+
+    /**
+     * Reload brain memories (call this when memories are updated)
+     */
+    reloadBrainMemories() {
+        this.loadBrainMemories();
     }
 
     /**
