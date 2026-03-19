@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/chat.css">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="../config.js"></script>
 </head>
-<body x-data="mainPage()" x-init="init()" :class="{'is-clipped': isMenuOpen}">
+<body x-data="app()" x-init="init()" :class="{'is-clipped': isMenuOpen}">
     
     <!-- Desktop Sidebar -->
     <aside class="sidebar is-desktop" :class="{'is-active': isMenuOpen}">
@@ -41,6 +42,10 @@
             <a href="collections.html" class="sidebar-item" :class="{'is-active': currentPage === 'collections'}">
                 <i class="fas fa-folder"></i>
                 <span>Collections</span>
+            </a>
+                    <a href="../brain/brain.html" class="sidebar-item" :class="{'is-active': currentPage === 'brain'}">
+                <i class="fas fa-brain"></i>
+                <span>AI Brain</span>
             </a>
         </nav>
         
@@ -206,6 +211,9 @@
     </div>
 
     <script src="../js/main.js"></script>
+    <script src="../engine/ai-engine.js"></script>
+    <script src="../engine/msg-output.js"></script>
+    <script src="../engine/ai-utils.js"></script>
     <script src="../js/chat.js"></script>
 </body>
 </html>

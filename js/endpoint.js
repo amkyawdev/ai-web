@@ -119,6 +119,11 @@ function endpointPage() {
             }
         },
         
+        toggleTheme() {
+            this.theme = this.theme === 'light' ? 'dark' : 'light';
+            this.saveSettings();
+        },
+        
         // Send request
         async sendRequest() {
             if (!this.url) return;

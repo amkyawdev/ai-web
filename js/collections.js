@@ -146,6 +146,11 @@ function collectionsPage() {
             ];
         },
         
+        toggleTheme() {
+            this.theme = this.theme === 'light' ? 'dark' : 'light';
+            this.saveSettings();
+        },
+        
         // Filter items
         filterItems() {
             let items = this.allItems;
