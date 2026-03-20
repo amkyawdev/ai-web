@@ -1,0 +1,14 @@
+{
+  "name": "ai-chat-platform",
+  "version": "1.0.0",
+  "description": "AI Chat Platform with Cloudflare Workers",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
