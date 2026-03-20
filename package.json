@@ -1,14 +1,15 @@
 {
-  "name": "ai-chat-platform",
+  "name": "complete-ai-webapp",
   "version": "1.0.0",
   "description": "AI Chat Platform with Cloudflare Workers",
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy",
+    "dev": "wrangler dev --config infra/wrangler.toml",
+    "deploy": "wrangler deploy --config infra/wrangler.toml",
+    "deploy:prod": "wrangler deploy --config infra/wrangler.toml",
     "test": "echo \"No tests configured\" && exit 0"
   },
   "devDependencies": {
-    "wrangler": "^3.0.0"
+    "wrangler": "^4.0.0"
   }
 }
